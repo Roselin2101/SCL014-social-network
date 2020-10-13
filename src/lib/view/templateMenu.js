@@ -2,7 +2,7 @@ export const menu = () => {
     const viewMenu = `
     <ul>
        <li>
-       <a href="#/">Iniciar-Sesion</a>
+       <a href="#/">IniciarSesion</a>
        </li>
        <li>
        <a href="#/registrarse">Registrarse</a>
@@ -13,7 +13,7 @@ export const menu = () => {
        <li>
        <a href="#/inicio">Inicio</a></li>
        <li> 
-       <a href="#/CerrarSesión">CerrarSesión</a></li>
+       <a href="#/cerrarSesión">CerrarSesión</a></li>
     </ul>
     `
     return viewMenu;
