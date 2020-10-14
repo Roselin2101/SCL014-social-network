@@ -10,28 +10,26 @@ export const changeRouter = (hash) => {
        return showTemplate(hash)
     }else if(hash ==='#/registrarse'){
        return showTemplate(hash)
+    } else if(hash === '#/menu'){
+        return showTemplate(hash)
     } else if(hash === '#/perfil'){
         return showTemplate(hash)
     } else if(hash === '#/cerrarSesion'){
         return showTemplate(hash)
     } else if(hash === '#/inicio'){
         return showTemplate(hash)
-    }  else {
-        return showTemplate(hash)
+    }    
     }
-  }
 
   const showTemplate = (hash) =>{
-      const contenidoRoot = document.getElementById('root');
-    //   contenidoRoot.innerHTML = menu();
+    const contenidoRoot = document.getElementById('root');
+    contenidoRoot.innerHTML = " ";
 
       switch(hash){
            case '#/':
-              contenidoRoot.innerHTML=" " ;
               contenidoRoot.appendChild(iniciarSesion());
               break;
            case '#/registrarse':
-               contenidoRoot.innerHTML=" " ;
                contenidoRoot.appendChild(registrarse());
               break;
            case '#/perfil':
@@ -47,8 +45,7 @@ export const changeRouter = (hash) => {
                  contenidoRoot.appendChild(cerrarSesion());
                 break;
             default:
-                contenidoRoot.innerHTML= `<h2>No Existe</h2>`
-            
+                contenidoRoot.innerHTML= `<h2>No Existe</h2>`            
   }
 }
         

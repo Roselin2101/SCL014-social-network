@@ -1,3 +1,6 @@
+
+// import { registrarse } from './templateRegistrarse.js'
+
 export const iniciarSesion = () =>{
     const divIniciarSesion =  document.createElement('div');
     
@@ -6,10 +9,10 @@ export const iniciarSesion = () =>{
    <form id="iniciarForm" class="formulario1">
        <div><img class="logoD" src='./img/logoDesserts.jpg'></div>
        <div class="input-contenedor">
-        <input id="input-Email"class="inputEmail" type="email" placeholder="E-mail" required>
+        <input id="input-Email" class="inputEmail" type="email" placeholder="E-mail" required>
         </div>
         <div class="input-contenedor">
-        <input class="inputinit" type="password" id="logpassword" placeholder="Contraseña" required>
+        <input id= "input-Password" class="inputinit" type="password" id="logpassword" placeholder="Contraseña" required>
         </div>
         <div class="input-contenedor">
         <button id="btn1" type="submit" value="Inicia sesión" class="button1">Iniciar Sesión</button>
@@ -21,14 +24,32 @@ export const iniciarSesion = () =>{
         </div>
         <div>
       <p>¿No tienes cuenta?</p>
-      <a id="btnRegistrar" href="#/registrarse"><button class="Registrar">Regístrate aquí</button></a>
+      <button id=btnRegistrar class="Registrar">Regístrate aquí</button></a>
       </div>
   </form>
 </div>
     `;
     divIniciarSesion.innerHTML = viewIniciarSesion;
-    return divIniciarSesion;
+const iniciarSesionFormulario = divIniciarSesion.querySelector('#iniciarForm')
+iniciarSesionFormulario.addEventListener('submit',(event)=>{
+event.preventDefault();
+let emailRegistrado= divIniciarSesion.querySelector('#input-Email').value;
+let passwordRegistrado= divIniciarSesion.querySelector('#input-Password').value;
+// console.log(emailRegistrado,passwordRegistrado);
+auth
+.signInWithEmailAndPassword(emailRegistrado, passwordRegistrado)
+.then( userCredential => {
+    iniciarSesionFormulario.reset();
+        console.log(userCredential);
+});
+
+})
+    // const btnRegistrar = divIniciarSesion.querySelector('#btnRegistrar');
+// btnRegistrar.addEventListener('click', () => { window.location.hash = "#/registrarse"});
+
+   return divIniciarSesion;
 };
+
 
 // const formulario = document.querySelector('#iniciarForm')
 // formulario.addEventListener('submit', (e) =>{

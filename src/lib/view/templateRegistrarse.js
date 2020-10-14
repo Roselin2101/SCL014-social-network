@@ -1,8 +1,9 @@
 
 export const registrarse = () =>{
+  
     const divRegistrarse =  document.createElement('div');    
     const viewRegistrarse = `
- <div id="Contenedorformulario3">
+ <div id="contenedorformulario3">
     <form id="logForm" class="formulario3">
     <div id= "contenedorImagen">
      <img src="img/logoDesserts.jpg" class="logoDesserts" id="logo">
@@ -18,23 +19,58 @@ export const registrarse = () =>{
     <div id="contenedorBtn">
     <button id="btn3" class="Registrar">Regístrarme</button></a>
     </div>
-  </div>
 </form> 
+</div>
     `;
     divRegistrarse.innerHTML = viewRegistrarse;
+    const formulario = divRegistrarse.querySelector('#logForm');
+    formulario.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let name= divRegistrarse.querySelector('#nombreRegistro').value;
+    let email = divRegistrarse.querySelector('#emailRegistro').value;
+    let password= divRegistrarse.querySelector('#registroPassword').value;
+    let password2= divRegistrarse.querySelector('#registroPassword2').value;
+    
+    auth
+    .createUserWithEmailAndPassword(email, password)
+    .then( userCredential => {
+        formulario.reset();
+        
+            console.log(userCredential);
+        })
+
+    });
+
     return divRegistrarse;
 };
 
-// const llenarFormulario = document.querySelector('#logForm');
-// llenarFormulario.addEventListener('submit', (event) => {
-// event.preventDefault();
-// let name= document.querySelector('#nombreRegistro').value;
-// let email = document.querySelector('#emailRegistro').value;
-// let ingresaPassword= document.querySelector('#registropassword').value;
-// let ingresePassword2= document.querySelector('#registropassword2').value;
-// console.log( name, email, password, password2)
+
+
+// const btn3 = document.getElementById("btn3");
+// btn3.addEventListener("click", () => {
+//     let name= document.getElementById("nombreRegistro").value;
+//     let email = document.getElementById("emailRegistro").value;
+//     let password = document.getElementById("registroPassword").value;
+//     let password2= document.getElementById("registroPassword2").value;
+//     console.log(name, email, password, password2)
 // });
 
+
+
+// const formulario = divRegistrarse.querySelector('#logForm');
+// formulario.addEventListener('submit', (event) => {
+// event.preventDefault();
+// let name= divRegistrarse.querySelector('#nombreRegistro').value;
+// let email = divRegistrarse.querySelector('#emailRegistro').value;
+// let password= divRegistrarse.querySelector('#registropassword').value;
+// let password2= divRegistrarse.querySelector('#registropassword2').value;
+// console.log( name, email, password, password2)
+// });
+// auth
+    // .createUserWithEmailAndPassword(ingresarName,ingresarEmail, ingresaPassword)
+    // .then( userCredential => {
+    //         console.log(registro)
+    //     })
 
 
 

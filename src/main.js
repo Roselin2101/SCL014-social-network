@@ -7,7 +7,7 @@ import { changeRouter} from './router.js'
 import { cerrarSesion } from './lib/view/templateCerrarSesion.js';
 
 
-myFunction();
+
 // document.getElementById('root').innerHTML= iniciarSesion();
 // document.getElementById('root').appendChild(iniciarSesion());
 // window.addEventListener('hashchange', ()=> {
@@ -15,20 +15,12 @@ myFunction();
 // });
 
 
-
-// auth
-
-    // .createUserWithEmailAndPassword(ingresarName,ingresarEmail, ingresaPassword)
-    // .then( userCredential => {
-    //         console.log(registro)
-    //     })
-
 const init = () => {
     document.getElementById('root').appendChild(iniciarSesion());
     window.addEventListener('hashchange', ()=> {
-    myFunction();
-    console.log(window.location.hash)
+    // console.log(window.location.hash)
     changeRouter(window.location.hash)
+    myFunction();
 
 });
 }
