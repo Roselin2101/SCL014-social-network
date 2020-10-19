@@ -1,4 +1,5 @@
 export const menu = () => {
+    const divMenu =  document.createElement('div');    
     const viewMenu = `
     <ul>
        <li>
@@ -13,8 +14,9 @@ export const menu = () => {
        <li>
        <a href="#/inicio">Inicio</a></li>
        <li> 
-       <a href="#/cerrarSesión">CerrarSesión</a></li>
+       <a href="#/cerrarSesion">CerrarSesión</a></li>
     </ul>
     `
-    return viewMenu;
+    divMenu.innerHTML = viewMenu;
+    return divMenu;
 }

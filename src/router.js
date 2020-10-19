@@ -20,32 +20,32 @@ export const changeRouter = (hash) => {
         return showTemplate(hash)
     }    
     }
-
-  const showTemplate = (hash) =>{
-    const contenidoRoot = document.getElementById('root');
+let contenidoRoot = document.getElementById('root');
+ export  const showTemplate = (hash) =>{
     contenidoRoot.innerHTML = " ";
 
       switch(hash){
-           case '#/':
-              contenidoRoot.appendChild(iniciarSesion());
-              break;
-           case '#/registrarse':
-               contenidoRoot.appendChild(registrarse());
-              break;
-           case '#/perfil':
-               contenidoRoot.appendChild(perfil());
-               break;
+           case '#/':{
+            contenidoRoot.appendChild(iniciarSesion());
+            break;
+           }
+            case '#/registrarse':
+           contenidoRoot.appendChild(registrarse());
+           break; 
+           case '#/perfil': 
+           contenidoRoot.appendChild(perfil());
+           break;
            case '#/menu':
-               contenidoRoot.appendChild(menu())
-               break; 
-           case '#/inicio': 
-                contenidoRoot.appendChild(inicio());
-                break;
+           contenidoRoot.appendChild(menu());
+           break;
+           case '#/inicio':
+           contenidoRoot.appendChild(inicio());
+           break;
            case '#/cerrarSesion':
-                 contenidoRoot.appendChild(cerrarSesion());
-                break;
+           contenidoRoot.appendChild(cerrarSesion());
+           break
             default:
-                contenidoRoot.innerHTML= `<h2>No Existe</h2>`            
+                return  contenidoRoot.innerHTML= `<h2> 404 No Existe</h2>`            
   }
-}
-        
+
+};

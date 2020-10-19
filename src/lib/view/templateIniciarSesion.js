@@ -1,5 +1,5 @@
 
-// import { registrarse } from './templateRegistrarse.js'
+// import { iniciarSesionGoogle } from '/..index.js';
 
 export const iniciarSesion = () =>{
     const divIniciarSesion =  document.createElement('div');
@@ -20,11 +20,11 @@ export const iniciarSesion = () =>{
         <a id="btn-recuperar"><button class="recuperar">Recuperar</button></a></p></div>
         <div class= "formulario2">
         <div class= "inputGoogle">
-        <button id="loginGoogle" class="btnGoogle">Inicia sesión con: <img class="googleImg" src="./img/logoGoogle.png"> </button>
+        <button  class="btnGoogle">Inicia sesión con: <img class="googleImg" src="./img/logoGoogle.png" id="loginGoogle"> </button>
         </div>
         <div>
       <p>¿No tienes cuenta?</p>
-      <button id=btnRegistrar class="Registrar">Regístrate aquí</button></a>
+     <a href="#/registrarse"><button id=btnRegistrar class="Registrar" >Regístrate aquí</button></a>
       </div>
   </form>
 </div>
@@ -36,32 +36,31 @@ event.preventDefault();
 let emailRegistrado= divIniciarSesion.querySelector('#input-Email').value;
 let passwordRegistrado= divIniciarSesion.querySelector('#input-Password').value;
 // console.log(emailRegistrado,passwordRegistrado);
+
 auth
-.signInWithEmailAndPassword(emailRegistrado, passwordRegistrado)
-.then( userCredential => {
-    iniciarSesionFormulario.reset();
+.signInWithEmailAndPassword(emailRegistrado, passwordRegistrado) 
+.then ( userCredential => {
+    
+    if (userCredential) {
+        window.location.hash = '#/inicio';
+        console.log('hola')
+        // ...
+      } else {
+        window.location.hash = '#/';
+        // User is signed out.
+        // ...
+      }
+    // return response.send(responseString);
         console.log(userCredential);
-});
-
-})
-    // const btnRegistrar = divIniciarSesion.querySelector('#btnRegistrar');
-// btnRegistrar.addEventListener('click', () => { window.location.hash = "#/registrarse"});
-
+            //User is signed in.
+}) .catch(error => { alert("Error Usuario No Registrado")})
+iniciarSesionFormulario.reset();
+})   
    return divIniciarSesion;
-};
+}; 
 
+// const iniciarGoogle= divIniciarSesion.querySelector('loginGoogle')
+// iniciarGoogle.addEventListener('click', ()=>{
+//   iniciarSesionGoogle();
 
-// const formulario = document.querySelector('#iniciarForm')
-// formulario.addEventListener('submit', (e) =>{
-//         e.preventDefault();
-//   console.log(enviando)
-//     });
-// const llamarFormulario = document.querySelector('#iniciarForm');
-// llamarFormulario.addEventListener('submit', (e) =>{
-//  e.preventDefault();
-//  e.stopPropagation();
-// let ingresarEmail= document.querySelector('#input-Email').value;
-// let ingresarPaasw = document.querySelector('#logpassword').value;
-// console.log(ingresarEmail, ingresarPaasw)
-
-// }) 
+// });

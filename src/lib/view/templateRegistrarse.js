@@ -1,6 +1,6 @@
 
 export const registrarse = () =>{
-  
+  // creacion de nueva cuenta con  mail -contraseña 
     const divRegistrarse =  document.createElement('div');    
     const viewRegistrarse = `
  <div id="contenedorformulario3">
@@ -22,6 +22,7 @@ export const registrarse = () =>{
 </form> 
 </div>
     `;
+
     divRegistrarse.innerHTML = viewRegistrarse;
     const formulario = divRegistrarse.querySelector('#logForm');
     formulario.addEventListener('submit', (event) => {
@@ -34,16 +35,27 @@ export const registrarse = () =>{
     auth
     .createUserWithEmailAndPassword(email, password)
     .then( userCredential => {
-        formulario.reset();
+        if (userCredential) {
+            window.location.hash = '#/inicio';
+            console.log('hola')
+            // ...
+          } else {
+            window.location.hash = '#/';
+            // User is signed out.
+            // ...
+          }
         
+        // return response.send(responseString);
             console.log(userCredential);
-        })
+                //User is signed in.
+    }) .catch(error => { alert("Error")})
+    formulario.reset();
+    })
 
-    });
-
+            // console.log(userCredential);
+    
     return divRegistrarse;
 };
-
 
 
 // const btn3 = document.getElementById("btn3");
