@@ -1,9 +1,6 @@
-
-// import { iniciarSesionGoogle } from '/..index.js';
-
+import { iniciarSesionUsuarioPass } from '../../firebase.js'
 export const iniciarSesion = () =>{
     const divIniciarSesion =  document.createElement('div');
-    
     const viewIniciarSesion = `
 <div class="contenedor">
    <form id="iniciarForm" class="formulario1">
@@ -29,36 +26,18 @@ export const iniciarSesion = () =>{
   </form>
 </div>
     `;
-    divIniciarSesion.innerHTML = viewIniciarSesion;
+divIniciarSesion.innerHTML = viewIniciarSesion;
 const iniciarSesionFormulario = divIniciarSesion.querySelector('#iniciarForm')
 iniciarSesionFormulario.addEventListener('submit',(event)=>{
 event.preventDefault();
 let emailRegistrado= divIniciarSesion.querySelector('#input-Email').value;
 let passwordRegistrado= divIniciarSesion.querySelector('#input-Password').value;
 // console.log(emailRegistrado,passwordRegistrado);
-
-auth
-.signInWithEmailAndPassword(emailRegistrado, passwordRegistrado) 
-.then ( userCredential => {
-    
-    if (userCredential) {
-        window.location.hash = '#/inicio';
-        console.log('hola')
-        // ...
-      } else {
-        window.location.hash = '#/';
-        // User is signed out.
-        // ...
-      }
-    // return response.send(responseString);
-        console.log(userCredential);
-            //User is signed in.
-}) .catch(error => { alert("Error Usuario No Registrado")})
+iniciarSesionUsuarioPass(emailRegistrado, passwordRegistrado);
 iniciarSesionFormulario.reset();
-})   
-   return divIniciarSesion;
-}; 
-
+return divIniciarSesion;
+}); 
+}
 // const iniciarGoogle= divIniciarSesion.querySelector('loginGoogle')
 // iniciarGoogle.addEventListener('click', ()=>{
 //   iniciarSesionGoogle();
