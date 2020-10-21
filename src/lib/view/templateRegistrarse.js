@@ -1,4 +1,4 @@
-
+import{ registrarseAutenticarse } from '../../firebase.js'
 export const registrarse = () =>{
   // creacion de nueva cuenta con  mail -contraseña 
     const divRegistrarse =  document.createElement('div');    
@@ -24,6 +24,8 @@ export const registrarse = () =>{
     `;
 
     divRegistrarse.innerHTML = viewRegistrarse;
+
+    // Variables desde los ID  
     const formulario = divRegistrarse.querySelector('#logForm');
     formulario.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,58 +33,12 @@ export const registrarse = () =>{
     let email = divRegistrarse.querySelector('#emailRegistro').value;
     let password= divRegistrarse.querySelector('#registroPassword').value;
     let password2= divRegistrarse.querySelector('#registroPassword2').value;
-    
-    auth
-    .createUserWithEmailAndPassword(email, password)
-    .then( userCredential => {
-        if (userCredential) {
-            window.location.hash = '#/inicio';
-            console.log('hola')
-            // ...
-          } else {
-            window.location.hash = '#/';
-            // User is signed out.
-            // ...
-          }
-        
-        // return response.send(responseString);
-            console.log(userCredential);
-                //User is signed in.
-    }) .catch(error => { alert("Error")})
-    formulario.reset();
-    })
+    registrarseAutenticarse(email, password)
+   
+});
+return divRegistrarse;
 
-            // console.log(userCredential);
-    
-    return divRegistrarse;
-};
-
-
-// const btn3 = document.getElementById("btn3");
-// btn3.addEventListener("click", () => {
-//     let name= document.getElementById("nombreRegistro").value;
-//     let email = document.getElementById("emailRegistro").value;
-//     let password = document.getElementById("registroPassword").value;
-//     let password2= document.getElementById("registroPassword2").value;
-//     console.log(name, email, password, password2)
-// });
-
-
-
-// const formulario = divRegistrarse.querySelector('#logForm');
-// formulario.addEventListener('submit', (event) => {
-// event.preventDefault();
-// let name= divRegistrarse.querySelector('#nombreRegistro').value;
-// let email = divRegistrarse.querySelector('#emailRegistro').value;
-// let password= divRegistrarse.querySelector('#registropassword').value;
-// let password2= divRegistrarse.querySelector('#registropassword2').value;
-// console.log( name, email, password, password2)
-// });
-// auth
-    // .createUserWithEmailAndPassword(ingresarName,ingresarEmail, ingresaPassword)
-    // .then( userCredential => {
-    //         console.log(registro)
-    //     })
+}
 
 
 

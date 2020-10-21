@@ -1,4 +1,4 @@
-import { iniciarSesionUsuarioPass } from '../../firebase.js'
+import { iniciarSesionUsuarioPass, iniciarSesionGoogle } from '../../firebase.js'
 export const iniciarSesion = () =>{
     const divIniciarSesion =  document.createElement('div');
     const viewIniciarSesion = `
@@ -17,7 +17,7 @@ export const iniciarSesion = () =>{
         <a id="btn-recuperar"><button class="recuperar">Recuperar</button></a></p></div>
         <div class= "formulario2">
         <div class= "inputGoogle">
-        <button  class="btnGoogle">Inicia sesión con: <img class="googleImg" src="./img/logoGoogle.png" id="loginGoogle"> </button>
+        <input id="logGoogle" type="image" class="googleImg" src="./img/logoGoogle.png" > 
         </div>
         <div>
       <p>¿No tienes cuenta?</p>
@@ -26,7 +26,16 @@ export const iniciarSesion = () =>{
   </form>
 </div>
     `;
+
 divIniciarSesion.innerHTML = viewIniciarSesion;
+
+// Elementos y eventos asociados a Google para iniciar sesion 
+const iniciarGoogle= divIniciarSesion.querySelector('#logGoogle')
+iniciarGoogle.addEventListener('click', ()=>{
+  iniciarSesionGoogle();
+});
+
+// Elementos y eventos asociados a  iniciar sesion con usuarios, correo, contraseña
 const iniciarSesionFormulario = divIniciarSesion.querySelector('#iniciarForm')
 iniciarSesionFormulario.addEventListener('submit',(event)=>{
 event.preventDefault();
@@ -34,12 +43,11 @@ let emailRegistrado= divIniciarSesion.querySelector('#input-Email').value;
 let passwordRegistrado= divIniciarSesion.querySelector('#input-Password').value;
 // console.log(emailRegistrado,passwordRegistrado);
 iniciarSesionUsuarioPass(emailRegistrado, passwordRegistrado);
-iniciarSesionFormulario.reset();
-return divIniciarSesion;
+
 }); 
+
+return divIniciarSesion;
+
 }
-// const iniciarGoogle= divIniciarSesion.querySelector('loginGoogle')
-// iniciarGoogle.addEventListener('click', ()=>{
-//   iniciarSesionGoogle();
 
 // });

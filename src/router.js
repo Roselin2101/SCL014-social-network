@@ -21,14 +21,13 @@ export const changeRouter = (hash) => {
     }    
     }
 let contenidoRoot = document.getElementById('root');
- export  const showTemplate = (hash) =>{
+  const showTemplate = (hash) =>{
     contenidoRoot.innerHTML = " ";
 
       switch(hash){
-           case '#/':{
-            contenidoRoot.appendChild(iniciarSesion());
+           case '#/':
+           contenidoRoot.appendChild(iniciarSesion());
             break;
-           }
             case '#/registrarse':
            contenidoRoot.appendChild(registrarse());
            break; 
