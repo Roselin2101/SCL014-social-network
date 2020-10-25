@@ -3,6 +3,7 @@ export const inicio = () =>{
     const divinicio  =  document.createElement('div');
     
     const viewinicio  = `
+
     <header>
             <div class="container">
                 <img class="logoD" src='./img/logoDesserts.jpg'>
@@ -16,14 +17,20 @@ export const inicio = () =>{
             <div class="menu-toggle">
             <div class="hamburguesa"></div>
             </div>
-        </header>
+        </header> 
 
         <!--Contenido Principal-->
-
-        <div id='containerPublicacion' class='containerPublic' p-6 > 
-        <h3>Titulo</h3>
-        <textarea id= "publicacion" class= "publicar"></textarea>
-        </div>
+ <div class="containerInicio">
+<form id= "task-form">
+<div class="form-Titulo"
+<input id="titulo"class="input-titulo" type="text" placeholder="Titulo">
+</div>
+ <div class="form-group">
+<textarea id="task-descroption" row="3" class="form-control" placehold="Description"></textarea>
+</div>
+ <button class ="btn-primary" id= "btn-task-form">Publicar</button>
+</form>
+ <div>
     `;
     divinicio .innerHTML= viewinicio;
     //elemento para desplegar el boton de 
