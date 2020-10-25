@@ -1,35 +1,105 @@
 
 body {
 background: #FFFDEF;
-font-family: 'Roboto Regular', arial;
+font-family: 'Roboto', arial;
 position: relative;
 /* width: 414px ;
 height: 890px ;
 margin: 0; */
 }
 
-* {
-    box-sizing: border-box;
-  }
 
-contenedor {
+.container {
     width: 95%;
     max-width: 1000PX;
     margin: 0 auto;
 }
 
 header{
-    background: E1AAAA ;
-    color: E1AAAA;
+    background: #e74141;
+    color: black;
+    size: 16;
     padding: 1em   0;
-    position: relative;
+    width: 421px;
+    height: 74px;
+    top:4px;
+    position: absolute;
 
 }
 
+header::after{ 
+    content:"";
+    clear: both;
+    display: block;
+}
+
 img.logoD {
-    position: absoluto ;
-    width: 234px ;
-    height: 162 px ;
-    left: 87px ;
-    nav-up : 31px ;
+    float: left;
+    /* position: absolute; */
+    width: 94px ;
+    height: 43 px ;
+    left: 3px ;
+    top: 31px ;
+}
+
+.sitioNav {
+   top: 100%;
+   right: 0 ;
+   position: absolute; 
+   background-color: rgb(207, 36, 142);
+   /* height: 0;
+   overflow: hidden; */
+}
+/* .sitio-nav-open{
+    height: auto;
+} */
+.sitioNav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sitioNav li{
+    border-bottom: 1px solid #e74141;
+}
+.sitioNav li:last-child{
+    border-bottom: none;
+}
+
+.sitioNav a{
+    color:#1a020e;
+    display: block;
+    padding: 2em 6em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.sitioNav a:hover,
+.sitioNav a:focus{
+    background: #e4b363;
+    color:#0a0a0e;
+}
+
+.menu-toggle{ 
+    background: fuchsia;
+    padding: 1em;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+}
+.hamburguesa,
+.hamburguesa ::before,
+.hamburguesa::after{
+    content: '';
+    display: block;
+    background: #ebebd3;
+    height: 3px;
+    width: 1.75em;
+    border-radius:3px;
+}
+.hamburguesa::before{
+    transform: translateY(-6px);
+} 
+.hamburguesa::after{
+    transform: translateY(3px);
 }

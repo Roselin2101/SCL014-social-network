@@ -6,7 +6,7 @@ export const registrarse = () =>{
  <div id="contenedorformulario3">
     <form id="logForm" class="formulario3">
     <div id= "contenedorImagen">
-     <img src="img/logoDesserts.jpg" class="logoDesserts" id="logo">
+     <img src="img/logoInicio.jpg" class="logoDesserts" id="logo">
      </div>
      <div id="contenedorInput" >
      <input id="nombreRegistro"class="input-registro" type="text" placeholder="Nombre"></div>
@@ -33,6 +33,7 @@ export const registrarse = () =>{
     let email = divRegistrarse.querySelector('#emailRegistro').value;
     let password= divRegistrarse.querySelector('#registroPassword').value;
     let password2= divRegistrarse.querySelector('#registroPassword2').value;
+    formulario.reset();
     registrarseAutenticarse(email, password)
    
 });

@@ -3,14 +3,14 @@ import { registrarse } from './lib/view/templateRegistrarse.js';
 import { perfil } from './lib/view/templatePerfil.js';
 import { inicio } from './lib/view/templateInicio.js';
 import { cerrarSesion } from './lib/view/templateCerrarSesion.js';
-import { menu } from './lib/view/templateMenu.js';
+import { recuperar } from './lib/view/templateRecuperar.js'; 
 
 export const changeRouter = (hash) => {
     if(hash ==='#/'){
        return showTemplate(hash)
     }else if(hash ==='#/registrarse'){
        return showTemplate(hash)
-    } else if(hash === '#/menu'){
+    } else if(hash === '#/recuperar'){
         return showTemplate(hash)
     } else if(hash === '#/perfil'){
         return showTemplate(hash)
@@ -34,8 +34,8 @@ let contenidoRoot = document.getElementById('root');
            case '#/perfil': 
            contenidoRoot.appendChild(perfil());
            break;
-           case '#/menu':
-           contenidoRoot.appendChild(menu());
+           case '#/recuperar':
+           contenidoRoot.appendChild(recuperar());
            break;
            case '#/inicio':
            contenidoRoot.appendChild(inicio());

@@ -1,8 +1,8 @@
-//registrandose
+//Registrandose
 export const registrarseAutenticarse= (email, password)=>{
     auth
     .createUserWithEmailAndPassword(email, password)
-    .then( userCredential => {
+    .then( userCredential =>{
         if (userCredential) {
             window.location.hash = '#/';
             console.log('hola')
@@ -16,10 +16,10 @@ export const registrarseAutenticarse= (email, password)=>{
             console.log(userCredential);
                 //User is signed in.
     }) .catch(error => { alert("Error Usuario No Registrado")})
-    formulario.reset();
+ 
 
 }
-//ingresar sesion con cuenta ya registrada
+//Ingresar sesion con cuenta ya registrada
 
 export const iniciarSesionUsuarioPass = (emailRegistrado,passwordRegistrado)=> {
 auth
@@ -38,11 +38,11 @@ auth
     // return response.send(responseString);
         console.log(userCredential);
             //User is signed in.
-}) .catch(error =>  { alert("Error")})
-   iniciarSesionFormulario.reset();
+}) .catch(error =>  { console.log("Error")})
+  
 
 }
-
+// funcion para ingresar por medio de cuentas google
 export const iniciarSesionGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -64,3 +64,22 @@ export const iniciarSesionGoogle = () => {
   });
 }
 
+//funcion para cerrar sesion
+
+export  const cerrarSesionApp = () =>{
+ auth.signOut().then(()=>{
+   console.log('salida');
+   window.location.hash='#/inicio'
+ })
+}
+
+// funcion para recuperar contraseña
+
+export const recuperarContraseña = (emailAddress)=> {
+  auth.sendPasswordResetEmail(emailAddress).then(function() {
+    window.location.hash = '#/'
+    // Email sent.
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
