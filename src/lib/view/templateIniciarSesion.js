@@ -6,10 +6,10 @@ export const iniciarSesion = () =>{
    <form id="iniciarForm" class="formulario1">
        <div><img class="logoD" src='./img/logoInicio.jpg'></div>
        <div class="input-contenedor">
-        <input id="input-Email" class="inputEmail" type="email" placeholder="E-mail" >
+        <input id="input-Email" class="inputEmail" type="email" placeholder="E-mail"/>
         </div>
         <div class="input-contenedor">
-        <input id= "input-Password" class="inputinit" type="password" id="logpassword" placeholder="Contraseña">
+        <input id= "input-Password" class="inputinit" type="password" id="logpassword" placeholder="Contraseña"/>
         </div>
         <div class="input-contenedor">
         <button id="btn1" type="submit" value="Inicia sesión" class="button1">Iniciar Sesión</button>

@@ -20,30 +20,59 @@ export const inicio = () =>{
         </header> 
 
         <!--Contenido Principal-->
- <div class="containerInicio">
+
 <form id= "task-form">
-<div class="form-Titulo"
-<input id="titulo"class="input-titulo" type="text" placeholder="Titulo">
+<div class="form-Titulo">
+<input id="titulo"class="tituloClass" placeholder="Titulo"/>
 </div>
- <div class="form-group">
-<textarea id="task-descroption" row="3" class="form-control" placehold="Description"></textarea>
+<div class="form-group">
+<textarea id="task-descroption" row="3" class="form-control" placehold="Description">
+</textarea>
 </div>
  <button class ="btn-primary" id= "btn-task-form">Publicar</button>
 </form>
- <div>
     `;
     divinicio .innerHTML= viewinicio;
-    //elemento para desplegar el boton de 
-//  let tooggle = divinicio.getElementById('.menu-toggle');
-// tooggle.addEventListener('click', ()=>{
-//  let cambiarSiteNav = divinicio.getElementById('sitio-nav');
-//  cambiarSiteNav.classList.toggle('site-nav-open');
-// })
-    //elementos para realizar el cierre de sesion 
+
 const cerrarSesion= divinicio.querySelector('#cierre')
 cerrarSesion.addEventListener('click', ()=>{
     cerrarSesionApp();
 }); 
-   
+
+const fs = firebase.firestore();
+
+const formularioPublic= divinicio.querySelector('#task-form');
+
+const guardarPublicaciones = (titulo, descripcion) =>
+ fs.collection('publicaciones').doc().set({
+    titulo,
+    descripcion
+});
+// de mi coleccion  publicaciones firebaseobtener todo
+const getPublicaciones = () => fs.collection('publicaciones').get();
+// cuando el DOM cargue el contenido quiero que se ejecute el get 
+window.addEventListener('DOMContentLoaded', async (event) => {
+const querySnapshot = await getPublicaciones();
+ querySnapshot.forEach(doc => {
+     console.log(doc.data())
+ })
+
+})
+
+formularioPublic.addEventListener('submit', async (event) => {
+event.preventDefault();
+
+const titulo = divinicio.querySelector('#titulo');
+const  descripcion = divinicio.querySelector('#task-descroption');
+
+await guardarPublicaciones(titulo.value, descripcion.value);
+
+formularioPublic.reset();
+titulo.focus();
+
+
+
+});
+
     return divinicio ;
 }
