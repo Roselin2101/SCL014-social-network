@@ -31,6 +31,7 @@ export const inicio = () =>{
 </div>
  <button class ="btn-primary" id= "btn-task-form">Publicar</button>
 </form>
+<p id='post'> </p>
     `;
     divinicio .innerHTML= viewinicio;
 
@@ -38,35 +39,12 @@ const cerrarSesion= divinicio.querySelector('#cierre')
 cerrarSesion.addEventListener('click', ()=>{
     cerrarSesionApp();
 }); 
-
-const fs = firebase.firestore();
-
 const formularioPublic= divinicio.querySelector('#task-form');
-
-const guardarPublicaciones = (titulo, descripcion) =>
- fs.collection('publicaciones').doc().set({
-    titulo,
-    descripcion
-});
-// de mi coleccion  publicaciones firebaseobtener todo
-const getPublicaciones = () => fs.collection('publicaciones').get();
-// cuando el DOM cargue el contenido quiero que se ejecute el get 
-window.addEventListener('DOMContentLoaded', async (event) => {
-const querySnapshot = await getPublicaciones();
- querySnapshot.forEach(doc => {
-     console.log(doc.data())
- })
-
-})
-
 formularioPublic.addEventListener('submit', async (event) => {
 event.preventDefault();
-
 const titulo = divinicio.querySelector('#titulo');
 const  descripcion = divinicio.querySelector('#task-descroption');
-
 await guardarPublicaciones(titulo.value, descripcion.value);
-
 formularioPublic.reset();
 titulo.focus();
 

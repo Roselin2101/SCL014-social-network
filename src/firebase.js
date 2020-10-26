@@ -86,3 +86,23 @@ export const recuperarContraseña = (emailAddress)=> {
 
 // Funcion para las Publicaciones 
 
+export const publicacionesNuevas = (inputPost)=>{
+  const fs = firebase.firestore();
+const usuario= ()=> firebase.auth()
+.currentUser;
+const user = usuario();
+
+
+const guardarPublicaciones = (titulo, descripcion) =>
+ fs.collection('publicaciones').doc().set({
+    titulo,
+    descripcion
+});
+// de mi coleccion  publicaciones firebaseobtener todo
+const getPublicaciones = () => fs.collection('publicaciones').get();
+
+
+ })
+
+})
+}
