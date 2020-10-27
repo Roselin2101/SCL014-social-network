@@ -86,23 +86,49 @@ export const recuperarContraseña = (emailAddress)=> {
 
 // Funcion para las Publicaciones 
 
-export const publicacionesNuevas = (inputPost)=>{
-  const fs = firebase.firestore();
-const usuario= ()=> firebase.auth()
-.currentUser;
-const user = usuario();
+export const posteame = (post)=>{
+  const db = firebase.firestore();
 
-
-const guardarPublicaciones = (titulo, descripcion) =>
- fs.collection('publicaciones').doc().set({
-    titulo,
-    descripcion
-});
-// de mi coleccion  publicaciones firebaseobtener todo
-const getPublicaciones = () => fs.collection('publicaciones').get();
-
-
- })
-
+  const usuario = () => firebase.auth()
+  .currentUser;
+ 
+db.collection("publicaciones").add(post)
+.then(function(docRef) {
+  console.log("Document written with ID: ", docRef.id);
 })
+.catch(function(error) {
+  console.error("Error adding document: ", error);
+});
 }
+
+// export const leeme = () => {
+//   const db = firebase.firestore();
+//   db.collection("publicaciones").get().then((querySnapshot) => {
+//     querySnapshot.forEach((doc) => {
+//         console.log(doc.data().descripcion);
+
+        // const muestrameTitulo = document.getElementById('tituloPost');
+        // const muestramePublicacion= document.getElementById('post'); 
+        // const informPost= `<h3>${doc.data().titulo} </h3>`
+        // const informPub= `<h3>${doc.data().descripcion}</h3>`
+        // muestrameTitulo.innerHTML += informPost;
+        // muestramePublicacion.innerHTML += informPub;
+  //   });
+  // });
+
+
+// }
+// funcion para agregar datos 
+// const db= firebase.firestore(); 
+// //agregar documentos
+// db.collection("users").add({
+//   first: "Ada",
+//   last: "Lovelace",
+//   born: 1815
+// })
+// .then(function(docRef) {
+//   console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+//   console.error("Error adding document: ", error);
+// });
