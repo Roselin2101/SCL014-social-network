@@ -96,18 +96,19 @@ export const recuperarContraseña = (emailAddress) => {
 
 // Funcion para las Publicaciones
 
-export const posteame = (post) => {
+export const posteame = (titulo, descripcion) => {
   const db = firebase.firestore();
 
-  const usuario = () => firebase.auth().currentUser;
+  const usuario = firebase.auth().currentUser;
 
   db.collection("publicaciones")
-    .add(post)
+    .add({titulo: titulo, descripcion: descripcion})
+
     .then(function (docRef) {
-      // console.log("Document written with ID: ", docRef.id);
+      console.log("Document written with ID: ", docRef.id);
     })
     .catch(function (error) {
-      // console.error("Error adding document: ", error);
+      console.error("Error adding document: ", error);
     });
 };
 //funcion leeme
@@ -116,17 +117,18 @@ export const leeme = () => {
   const db = firebase.firestore();
   db.collection("publicaciones").onSnapshot((querySnapshot) => {
     // constante vista general de los post
-    const posts = document.getElementById("vistaPost");
+    const posts = document.querySelector("#vista");
     posts.innerHTML = " ";
     querySnapshot.forEach((doc) => {
       const dataPosts = doc.data();
-      const templatePost = `<div><h3>${dataPosts.titulo}</h3> </div>
+      const templatePost =`<div><h3>${dataPosts.titulo}</h3></div>
         <div>${dataPosts.descripcion}</div>
         <button class='eliminar' data-id='${doc.id}'>Elimar</button>
         <button class='editar' data-id='${doc.id}'>Editar</button>
         `;
       posts.innerHTML += templatePost; 
     });
+
     const botonesEliminar = document.querySelectorAll('.eliminar');
     botonesEliminar.forEach((btnEliminar)=>{
       btnEliminar.addEventListener('click', (event)=>{
@@ -134,19 +136,11 @@ export const leeme = () => {
         eliminar(event.target.dataset.id);
     });
   });
-    const botonesEditar = document.querySelectorAll('.editar');
-    botonesEditar.forEach((btnEditar)=>{
-      btnEditar.addEventListener('click', ( event)=>{
-        console.log(event.target.dataset.id);
-        editar(event.target.dataset.id);
-      
-    });
-
-    });
   
   });
 
 };
+// Funcion Eliminar documentos
 
 export const eliminar = (id) => {
   const db = firebase.firestore();
@@ -155,5 +149,5 @@ export const eliminar = (id) => {
 
 export const editar = (id)=>{
   const db = firebase.firestore();
-  db.collection("publicaciones").doc(id).update();
+db.collection("publicaciones").doc(id).updated({ titulo, descripcion})
 }

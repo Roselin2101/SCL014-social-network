@@ -30,7 +30,7 @@ export const inicio = () => {
        </div>
      <button class ="btn-primary" id= "btn-task-form">Publicar</button>
  </form>
-  <div id='vistaPost'></div>
+  <div id='vista'></div>
  
 
         `;
@@ -47,7 +47,7 @@ export const inicio = () => {
     const titulo = divinicio.querySelector("#titulo").value;
     const descripcion = divinicio.querySelector("#task-description").value;
 
-    posteame({ titulo, descripcion });
+    posteame(titulo,descripcion);
     formularioPublic.reset();
   });
   leeme();
