@@ -46,8 +46,9 @@ export const inicio = () => {
     event.preventDefault();
     const titulo = divinicio.querySelector("#titulo").value;
     const descripcion = divinicio.querySelector("#task-description").value;
+    const id_user = firebase.auth().currentUser.uid;
 
-    posteame(titulo,descripcion);
+    posteame(titulo, descripcion, id_user);
     formularioPublic.reset();
   });
   leeme();

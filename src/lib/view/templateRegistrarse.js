@@ -1,8 +1,8 @@
-import{ registrarseAutenticarse } from '../../firebase.js'
-export const registrarse = () =>{
-  // creacion de nueva cuenta con  mail -contraseña 
-    const divRegistrarse =  document.createElement('div');    
-    const viewRegistrarse = `
+import { registrarseAutenticarse } from "../../firebase.js";
+export const registrarse = () => {
+  // creacion de nueva cuenta con  mail -contraseña
+  const divRegistrarse = document.createElement("div");
+  const viewRegistrarse = `
  <div id="contenedorformulario3">
     <form id="logForm" class="formulario3">
     <div id= "contenedorImagen">
@@ -23,23 +23,18 @@ export const registrarse = () =>{
 </div>
     `;
 
-    divRegistrarse.innerHTML = viewRegistrarse;
+  divRegistrarse.innerHTML = viewRegistrarse;
 
-    // Variables desde los ID  
-    const formulario = divRegistrarse.querySelector('#logForm');
-    formulario.addEventListener('submit', (event) => {
+  // Variables desde los ID
+  const formulario = divRegistrarse.querySelector("#logForm");
+  formulario.addEventListener("submit", (event) => {
     event.preventDefault();
-    let name= divRegistrarse.querySelector('#nombreRegistro').value;
-    let email = divRegistrarse.querySelector('#emailRegistro').value;
-    let password= divRegistrarse.querySelector('#registroPassword').value;
-    let password2= divRegistrarse.querySelector('#registroPassword2').value;
+    let name = divRegistrarse.querySelector("#nombreRegistro").value;
+    let email = divRegistrarse.querySelector("#emailRegistro").value;
+    let password = divRegistrarse.querySelector("#registroPassword").value;
+    let password2 = divRegistrarse.querySelector("#registroPassword2").value;
     formulario.reset();
-    registrarseAutenticarse(email, password)
-   
-});
-return divRegistrarse;
-
-}
-
-
-
+    registrarseAutenticarse(email, password);
+  });
+  return divRegistrarse;
+};

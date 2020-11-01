@@ -39,11 +39,11 @@ export const iniciarSesionUsuarioPass = (
         // ...
       }
       // return response.send(responseString);
-      console.log(userCredential);
+      // console.log(userCredential);
       //User is signed in.
     })
     .catch((error) => {
-      console.log("Error");
+      // console.log("Error");
     });
 };
 // funcion para ingresar por medio de cuentas google
@@ -96,21 +96,23 @@ export const recuperarContraseña = (emailAddress) => {
 
 // Funcion para las Publicaciones
 
-export const posteame = (titulo, descripcion) => {
+export const posteame = (titulo, descripcion, id_usuario) => {
   const db = firebase.firestore();
 
-  const usuario = firebase.auth().currentUser;
-
   db.collection("publicaciones")
-    .add({titulo: titulo, descripcion: descripcion})
 
-    .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
+    .add({ titulo: titulo, descripcion: descripcion, id_usuario: id_usuario })
+
+    .then(function (docRef){
+      // console.log("Document written with ID: ", docRef.id);
     })
     .catch(function (error) {
-      console.error("Error adding document: ", error);
+      // console.error("Error adding document: ", error);
+    
     });
-};
+
+  }
+
 //funcion leeme
 export const leeme = () => {
   console.log("hola leeme");
@@ -121,33 +123,58 @@ export const leeme = () => {
     posts.innerHTML = " ";
     querySnapshot.forEach((doc) => {
       const dataPosts = doc.data();
-      const templatePost =`<div><h3>${dataPosts.titulo}</h3></div>
+      const templatePost = `<div><h3>${dataPosts.titulo}</h3></div>
         <div>${dataPosts.descripcion}</div>
         <button class='eliminar' data-id='${doc.id}'>Elimar</button>
         <button class='editar' data-id='${doc.id}'>Editar</button>
         `;
-      posts.innerHTML += templatePost; 
+      posts.innerHTML += templatePost;
     });
 
-    const botonesEliminar = document.querySelectorAll('.eliminar');
-    botonesEliminar.forEach((btnEliminar)=>{
-      btnEliminar.addEventListener('click', (event)=>{
+    const botonesEliminar = document.querySelectorAll(".eliminar");
+    botonesEliminar.forEach((btnEliminar) => {
+      btnEliminar.addEventListener("click", (event) => {
         // console.log(event.target.dataset.id);
         eliminar(event.target.dataset.id);
+      });
+    });
+    const botonesEditar = document.querySelectorAll(".editar");
+    botonesEditar.forEach((btnEditar) => {
+      btnEditar.addEventListener("click", (event) => {
+        // console.log(event.target.dataset.id);
+        editar(event.target.dataset.id, {
+          titulo: document.getElementById("titulo").value,
+          descripcion: document.getElementById("task-description").value,
+        });
+      });
     });
   });
-  
-  });
-
 };
-// Funcion Eliminar documentos
 
 export const eliminar = (id) => {
   const db = firebase.firestore();
   db.collection("publicaciones").doc(id).delete();
-}
+};
 
-export const editar = (id)=>{
+export const editar = (id, data) => {
+
   const db = firebase.firestore();
-db.collection("publicaciones").doc(id).updated({ titulo, descripcion})
+
+ // Create a reference to the cities collection
+ const id_documento = id; 
+
+ const idRef = db.collection("publicaciones");
+ 
+ const query = db.collection("publicaciones").doc(id);
+
+ query.get().then(function(doc) {
+     if (doc.exists) {
+         console.log("Document data:", doc.data());
+     } else {
+         // doc.data() will be undefined in this case
+         console.log("No such document!");
+     }
+ }).catch(function(error) {
+     console.log("Error getting document:", error);
+ });
 }
