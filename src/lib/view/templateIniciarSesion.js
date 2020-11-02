@@ -16,11 +16,11 @@ export const iniciarSesion = () => {
            </div>
            <div class="input-contenedor">
            <button id="btn1" type="submit" value="Inicia sesión" class="button1">Iniciar Sesión</button>
-           </div><p class="recuperarContraseña"> ¿Olvidaste tu contraseña?
-          <button id="recuperar">Recuperar</button><p>
+           </div><p class="recuperarContraseña"> ¿Olvidaste tu contraseña?</p>
+          <button id="recuperar" class="recuperar-cuenta">Recuperar</button><p>
          <div class= "formulario2">
         <div class= "inputGoogle">
-        <p>Ingresa con tu cuenta de:</p> <input id="logGoogle" type="image" class="googleImg" src="./img/logoGoogle.png" > 
+        <p>Ingresa con:</p> <input id="logGoogle" type="image" class="googleImg" src="./img/logoGoogle.png" > 
        </div>
       <div>
     <p>¿No tienes cuenta?</p>

@@ -3,7 +3,6 @@ export const perfil = () =>{
     
     const viewPerfil = `
    <h1> hola soy perfil</h1>
-   
     `
     divPerfil.innerHTML= viewPerfil;
    

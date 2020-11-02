@@ -4,7 +4,6 @@ import { changeRouter} from './router.js'
 
 
 
-
 const init = () => {
     document.getElementById('root').appendChild(iniciarSesion());
     window.addEventListener('hashchange', ()=> {

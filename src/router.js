@@ -2,7 +2,6 @@ import { iniciarSesion } from './lib/view/templateIniciarSesion.js';
 import { registrarse } from './lib/view/templateRegistrarse.js';
 import { perfil } from './lib/view/templatePerfil.js';
 import { inicio } from './lib/view/templateInicio.js';
-import { cerrarSesion } from './lib/view/templateCerrarSesion.js';
 import { recuperar } from './lib/view/templateRecuperar.js'; 
 
 export const changeRouter = (hash) => {
@@ -13,8 +12,6 @@ export const changeRouter = (hash) => {
     } else if(hash === '#/recuperar'){
         return showTemplate(hash)
     } else if(hash === '#/perfil'){
-        return showTemplate(hash)
-    } else if(hash === '#/cerrarSesion'){
         return showTemplate(hash)
     } else if(hash === '#/inicio'){
         return showTemplate(hash)
@@ -39,10 +36,7 @@ let contenidoRoot = document.getElementById('root');
            break;
            case '#/inicio':
            contenidoRoot.appendChild(inicio());
-           break;
-           case '#/cerrarSesion':
-           contenidoRoot.appendChild(cerrarSesion());
-           break
+           break 
             default:
                 return  contenidoRoot.innerHTML= `<h2> 404 No Existe</h2>`            
   }

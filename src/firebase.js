@@ -104,10 +104,10 @@ export const posteame = (titulo, descripcion, id_usuario) => {
     .add({ titulo: titulo, descripcion: descripcion, id_usuario: id_usuario })
 
     .then(function (docRef){
-      // console.log("Document written with ID: ", docRef.id);
+     console.log("Document written with ID: ", docRef.id);
     })
     .catch(function (error) {
-      // console.error("Error adding document: ", error);
+    console.error("Error adding document: ", error);
     
     });
 
@@ -125,7 +125,7 @@ export const leeme = () => {
       const dataPosts = doc.data();
       const templatePost = `<div><h3>${dataPosts.titulo}</h3></div>
         <div>${dataPosts.descripcion}</div>
-        <button class='eliminar' data-id='${doc.id}'>Elimar</button>
+        <button class='eliminar' data-id='${doc.id}'>Eliminar</button>
         <button class='editar' data-id='${doc.id}'>Editar</button>
         `;
       posts.innerHTML += templatePost;
@@ -144,7 +144,7 @@ export const leeme = () => {
         // console.log(event.target.dataset.id);
         editar(event.target.dataset.id, {
           titulo: document.getElementById("titulo").value,
-          descripcion: document.getElementById("task-description").value,
+          descripcion: document.getElementById("task-description").value
         });
       });
     });
@@ -153,23 +153,24 @@ export const leeme = () => {
 
 export const eliminar = (id) => {
   const db = firebase.firestore();
+  if(doc.exists && doc.data().id_usuario === firebase.auth.auid){
   db.collection("publicaciones").doc(id).delete();
+} else {
+  console.log("No such document!");
+}
 };
 
 export const editar = (id, data) => {
-
   const db = firebase.firestore();
 
- // Create a reference to the cities collection
- const id_documento = id; 
-
- const idRef = db.collection("publicaciones");
  
  const query = db.collection("publicaciones").doc(id);
 
  query.get().then(function(doc) {
-     if (doc.exists) {
-         console.log("Document data:", doc.data());
+     if (doc.exists && doc.data().id_usuario === firebase.auth().currentUser.uid){
+      db.collection("publicaciones").doc(id).update(data);
+        //  console.log("Document data:", doc.data());
+        //  console.log( doc.data().id_usuario)
      } else {
          // doc.data() will be undefined in this case
          console.log("No such document!");

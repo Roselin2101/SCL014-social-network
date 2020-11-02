@@ -3,19 +3,307 @@ body {
 background: #FFFDEF;
 font-family: 'Roboto', arial;
 position: relative;
+}
+header {
+    padding: 10px;
+    padding-bottom: 0;
+    border-bottom: 5px solid rgb(219, 154, 211);
+    display: flex;
+    background-color:  rgb(219, 154, 211);;
+    margin-bottom: 20px;
+  }
+
+  div img.logoD {
+    width: 60%;
+    margin-left: 15%;
+    position: center;
+    align-items: center;
+    top: 259px;
+    border: 100px;
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 55px;
+  }
+
+.container {
+    width: 100%;
+    padding: 20px;
+    position: center;
+    float: center;
+
+}
+/* div img.logoD {
+    float: center;
+    width: 20%;
+    margin-left: 3%;
+     position: absolute; 
+    width: 94px ;
+    height: 43 px ;
+    left: 3px ;
+    top: 31px ;
+} */
+
+.formulario1{
+    margin-top: 40px;
+    padding: 20px;
+}
+
+div .inputEmail{
+
+height: 35px;
+width: 250px;
+left: 25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+padding: 3px; 
+margin-bottom: 4%;
 
 }
 
+div .inputinit {
+height: 35px;
+width: 250px;
+left: 25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+padding: 3px; 
+margin-bottom: 4%;
 
+} 
 
-/* 
+div .button1{
+height: 35px;
+width: 250px;
+left: 25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+}
+
+div p {
+font-size: Roboto;
+width: 700px;
+list-style: normal;
+Size: 16px;
+Height: 18,75px;
+align-content: Center;
+justify-content: center;
+direction: center;
+}
+
+.recuperar-cuenta{
+height: 35px;
+width: 250px;
+left: 25px;
+right:25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+
+}
+div .inputGoogle{
+position: center;
+    /* position: absolute;  */
+left: 7%;
+right: 7%;
+top: 15%;
+bottom: -20%;
+background: url(image.png);
+position: relative;
+align-content: flex-start;
+}
+div .googleImg{
+font-display: flex; 
+left: 7%;
+right: 7%;
+top: 15%;
+bottom: -20%;
+background: url(image.png);
+position: relative;
+align-content: flex-start;
+
+}
+.Registrar{
+height: 35px;
+width: 250px;
+left: 25px;
+right:25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+    
+}
+
+img.logoDesserts{
+    width: 50%;
+    margin-left: 15%;
+    position: center;
+    top: 310px;
+    display: inline-block;
+}
+
+div .input-registro{
+    height: 35px;
+width: 250px;
+left: 25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+padding: 3px; 
+margin-bottom: 4%;
+
+}
+
+div .input-recuperar{
+    height: 35px;
+    width: 250px;
+    left: 25px;
+    top: 259px;
+    border-radius: 8px;
+    border: 1px solid rgba(240, 71, 71, 1);
+    padding: 3px; 
+    margin-bottom: 4%;
+
+}
+
+.recuperarContraseñaClass{
+    height: 35px;
+width: 250px;
+left: 25px;
+right:25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+
+}
+
+div .tituloClass{
+    height: 35px;
+    width: 250px;
+    left: 25px;
+    right:25px;
+    top: 259px;
+    border-radius: 8px;
+    border: 1px solid rgba(240, 71, 71, 1);
+    padding: 3px; 
+    margin-bottom: 4%;
+}
+
+div .form-control{
+
+    height: 100px;
+    width: 250px;
+    left: 25px;
+    right:25px;
+    top: 259px;
+    border-radius: 8px;
+    border: 1px solid rgba(240, 71, 71, 1);
+    padding: 3px; 
+    margin-bottom: 4%;
+}
+
+.btn-primary{
+height: 35px;
+width: 250px;
+left: 25px;
+right:25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+
+}
 .container {
     width: 95%;
     max-width: 1000PX;
     margin: 0 auto;
 }
+/* header{
+    position: absolute;
+    width: 414px;
+    height: 74px;
+    left: 0px;
+    top: 0px;
+    background: rgba(225, 170, 170, 0.5);
+    } */
+    
+.vistaPost{
+    height: 100px;
+    width: 250px;
+    left: 25px;
+    right:25px;
+    top: 259px;
+    border-radius: 8px;
+    border: 1px solid rgba(240, 71, 71, 1);
+    padding: 3px; 
+    margin-bottom: 4%;
+}
 
-header{
+li a{
+    height: 35px;
+width: 250px;
+left: 25px;
+right:25px;
+top: 259px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+list-style: none;
+border-bottom: none;
+
+}
+
+.eliminar{
+height: 35px;
+width: 100px;
+left: 25px;
+top: 100px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+
+}
+
+.editar{
+right:25px;
+top: 100px;
+border-radius: 8px;
+border: 1px solid rgba(240, 71, 71, 1);
+background: rgba(254, 169, 169, 1);
+padding: 3px; 
+margin-bottom: 4%;
+height: 35px;
+width: 100px;
+
+}
+
+/* .container {
+    width: 95%;
+    max-width: 1000PX;
+    margin: 0 auto;
+} */
+
+/* header{
     background: #e74141;
     color: black;
     size: 16;
@@ -25,40 +313,39 @@ header{
     top:4px;
     position: absolute;
 
-}
+} */
 
-header::after{ 
+/* header::after{ 
     content:"";
     clear: both;
     display: block;
-}
-
+} */
+/* 
 img.logoD {
     float: left;
-    /* position: absolute; */
-    width: 94px ;
+     position: absolute; 
+     width: 94px ;
     height: 43 px ;
     left: 3px ;
     top: 31px ;
-}
-
-.sitioNav {
+} */
+/* .sitioNav {
    top: 100%;
    right: 0 ;
    position: absolute; 
-   background-color: rgb(207, 36, 142);
-   /* height: 0;
-   overflow: hidden; */
-}
-/* .sitio-nav-open{
+   background-color: rgb(207, 36, 142); 
+    height: 0;
+   overflow: hidden;
+   }  */
+
+ /* .sitio-nav-open {
     height: auto;
-} */
-.sitioNav ul {
+} 
+ .sitioNav ul {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
+} 
 .sitioNav li{
     border-bottom: 1px solid #e74141;
 }
@@ -78,15 +365,15 @@ img.logoD {
 .sitioNav a:focus{
     background: #e4b363;
     color:#0a0a0e;
-}
+} 
 
-.menu-toggle{ 
+ .menu-toggle{ 
     background: fuchsia;
     padding: 1em;
     position: absolute;
     top: .5em;
-    right: .5em;
-}
+    right: .5em; */
+/* }
 .hamburguesa,
 .hamburguesa ::before,
 .hamburguesa::after{

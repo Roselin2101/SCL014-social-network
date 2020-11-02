@@ -3,9 +3,12 @@ export const recuperar = () => {
   const divRecuperar = document.createElement("div");
   const viewRecuperar = `
     <div id="contenedorInput" >
+    <div id= "contenedorImagen">
+     <img src="img/logoInicio.jpg" class="logoDesserts" id="logo">
+     </div>
     <input id="emailRecuperar"class="input-recuperar" type="email" placeholder="E-mail"></div>
     <div id="contenedorInput">
-    <button id="recuperarContraseña">Enviar</button><p>
+    <button id="recuperarContraseña" class="recuperarContraseñaClass">Enviar</button><p>
     `;
   // evento para recibir codigo y recuperar contraseña
   divRecuperar.innerHTML = viewRecuperar;

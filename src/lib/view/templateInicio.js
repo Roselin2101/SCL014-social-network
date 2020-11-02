@@ -1,4 +1,4 @@
-import { cerrarSesionApp, posteame, leeme } from "../../firebase.js";
+import { cerrarSesionApp, posteame, leeme, } from "../../firebase.js";
 export const inicio = () => {
   const divinicio = document.createElement("div");
 
@@ -8,7 +8,7 @@ export const inicio = () => {
                 <img class="logoD" src='./img/logoDesserts.jpg'>
                 <nav id= "sitio-nav" class="sitioNav">
                  <ul>  
-                    <li><a href="#/perfil">Perfil</a></li>
+                    <li><a href="" id="perfil">Perfil</a></li>
                     <li><a href="" id="cierre">Cerrar sesion</a> </li>
                 </ul>
                 </nav>
@@ -22,15 +22,14 @@ export const inicio = () => {
 
  <form id= "task-form">
     <div class="form-Titulo">
-     <input id="titulo"class="tituloClass" placeholder="Titulo"/>
+     <input id="titulo" class="tituloClass" placeholder="Titulo"/>
        </div>
         <div class="form-group">
-       <textarea id="task-description" row="4" class="form-control" placehold="Description">
-        </textarea>
+       <textarea id="task-description" row="4" class="form-control" placeholder="Description"></textarea>
        </div>
      <button class ="btn-primary" id= "btn-task-form">Publicar</button>
  </form>
-  <div id='vista'></div>
+  <div id='vista' class="vistaPost"></div>
  
 
         `;
@@ -40,6 +39,12 @@ export const inicio = () => {
   cerrarSesion.addEventListener("click", () => {
     cerrarSesionApp();
   });
+
+const perfil = divinicio.querySelector("#perfil");
+perfil.addEventListener("click", ()=>{
+  window.location.hash = '#/perfil';
+});
+
   // variables para guardar post
   const formularioPublic = divinicio.querySelector("#task-form");
   formularioPublic.addEventListener("submit", (event) => {
@@ -47,7 +52,6 @@ export const inicio = () => {
     const titulo = divinicio.querySelector("#titulo").value;
     const descripcion = divinicio.querySelector("#task-description").value;
     const id_user = firebase.auth().currentUser.uid;
-
     posteame(titulo, descripcion, id_user);
     formularioPublic.reset();
   });
